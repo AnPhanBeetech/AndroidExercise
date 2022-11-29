@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dark"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="125dp"
+        android:layout_height="116dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.108"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="52dp"
+        android:background="@android:color/white"
+        android:drawableLeft="@android:drawable/ic_dialog_email"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="E-mail address"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+        android:drawablePadding="10dp"
+        android:ems="0"
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:text="123456789"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/teal_700"
+        android:backgroundTint="@color/teal_200"
+        android:text="Sign in"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="?android:attr/colorActivatedHighlight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="124dp"
+        android:background="@color/teal_700"
+        android:backgroundTint="@color/teal_200"
+        android:drawableLeft="@drawable/f2"
+        android:gravity="fill_horizontal|center_vertical"
+        android:paddingLeft="70dp"
+        android:text="Sign in with Facebook"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/facebook_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="180dp"
+        android:background="@color/teal_700"
+        android:backgroundTint="@color/teal_200"
+        android:drawableLeft="@drawable/t3"
+        android:gravity="fill_horizontal|center_vertical"
+        android:paddingLeft="60dp"
+        android:text="Sign in with Twitter"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/material_dynamic_primary60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/transparent"
+        android:color="@android:color/transparent"
+        android:src="@android:drawable/screen_background_light_transparent"
+        android:text="Forgot password?"
+        android:textAllCaps="false"
+        android:textColor="@color/material_dynamic_neutral_variant70"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/transparent"
+        android:color="@android:color/transparent"
+        android:text="@string/new_here_underline"
+        android:textAllCaps="false"
+        android:textColor="@color/material_dynamic_neutral_variant70"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
