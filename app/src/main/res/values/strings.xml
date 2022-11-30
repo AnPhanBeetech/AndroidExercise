@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">AndroidExercise</string>
     <string name="new_here_underline"><u>New here? Sign Up</u>.</string>
+    <string name="email_hint">E-mail address</string>
+    <string name="facebook_button_signin">Sign in with Facebook</string>
+    <string name="twitter_button_signin">Sign in with Twitter</string>
+    <string name="signin">Sign in</string>
+    <string name="password_hint">123456789</string>
+    <string name="back_button">Back</string>
 </resources>
