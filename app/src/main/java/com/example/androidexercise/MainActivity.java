@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText emailTxt;
-    private static final int REQUEST_CODE_EXAMPLE = 0x9345;
+    private static final int REQUEST_CODE_EXAMPLE = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         Intent myIntent = new Intent(getBaseContext(), InfoActivity.class);
                         myIntent.putExtra("username", emailTxt.getText().toString());
-                        startActivityForResult(myIntent, 2);
+                        startActivityForResult(myIntent, REQUEST_CODE_EXAMPLE);
 
                     }
                 }, 1000);
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 2) {
+        if(requestCode == REQUEST_CODE_EXAMPLE) {
 
             if(resultCode == Activity.RESULT_OK) {
                 final String result = data.getStringExtra(InfoActivity.USER_DATA);
