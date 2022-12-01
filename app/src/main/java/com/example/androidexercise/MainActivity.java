@@ -1,10 +1,16 @@
 package com.example.androidexercise;
 
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -18,6 +24,18 @@ public class MainActivity extends AppCompatActivity {
     EditText emailTxt;
     private static final int REQUEST_CODE_EXAMPLE = 10;
 
+    ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        emailTxt.setText(result.getData().getStringExtra(InfoActivity.USER_DATA));
+
+                    }
+                }
+            });
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +43,17 @@ public class MainActivity extends AppCompatActivity {
 
         Button loginButton = (Button)findViewById(R.id.btnLogin);
         loginButton.setOnClickListener(loginListener);
+
+        Button fbButton = (Button)findViewById(R.id.fb_button);
+
+        fbButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), InfoActivity.class);
+                myIntent.putExtra("username", emailTxt.getText().toString());
+                mStartForResult.launch(myIntent);
+            }
+        });
 
         emailTxt = (EditText) findViewById(R.id.email_text);
 
