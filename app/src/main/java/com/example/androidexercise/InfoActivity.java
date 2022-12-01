@@ -2,6 +2,7 @@ package com.example.androidexercise;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,8 @@ public class InfoActivity extends AppCompatActivity {
 
     EditText usernameTxt;
     Button backBtn;
+    public static final String USER_DATA = "USER_DATA";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +29,16 @@ public class InfoActivity extends AppCompatActivity {
     }
     private View.OnClickListener backListener = new View.OnClickListener() {
         public void onClick(View v) {
-            Intent myIntent = new Intent(getBaseContext(), MainActivity.class);
-            myIntent.putExtra("username", usernameTxt.getText().toString());
-            InfoActivity.this.startActivity(myIntent);
+            final Intent myIntent = new Intent();
+            myIntent.putExtra(USER_DATA, usernameTxt.getText().toString());
+            setResult(Activity.RESULT_OK, myIntent);
+            finish();
         }
     };
+    @Override
+    public void onBackPressed() {
+
+        setResult(Activity.RESULT_CANCELED);
+        super.onBackPressed();
+    }
 }
