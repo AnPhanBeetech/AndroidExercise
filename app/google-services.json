@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1063084082691",
+    "firebase_url": "https://wordfinder-5fa4e.firebaseio.com",
+    "project_id": "wordfinder-5fa4e",
+    "storage_bucket": "wordfinder-5fa4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063084082691:android:b9a249adf493cd089d3036",
+        "android_client_info": {
+          "package_name": "com.example.androidexercise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063084082691-15lr3qmlcjtokircar8abds3dr1su9lt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9iKLbL-a8W0WnI9dOrWenXfc2mrwzWoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1063084082691-15lr3qmlcjtokircar8abds3dr1su9lt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063084082691:android:149361f0bec15b26",
+        "android_client_info": {
+          "package_name": "com.mono.wordfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063084082691-15lr3qmlcjtokircar8abds3dr1su9lt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9iKLbL-a8W0WnI9dOrWenXfc2mrwzWoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1063084082691-15lr3qmlcjtokircar8abds3dr1su9lt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
