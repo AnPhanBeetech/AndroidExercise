@@ -55,6 +55,8 @@ public class RetroActivity extends AppCompatActivity implements Callback<CatItem
 
 
     Retrofit retrofit;
+    Observable<List<CatItem.Country>> btcObservable;
+    Observable<List<CatItem.Country>> ethObservable;
 
     private Observable<Integer> createObservable(int data) {
         return Observable.just(data);
@@ -74,19 +76,30 @@ public class RetroActivity extends AppCompatActivity implements Callback<CatItem
         setContentView(R.layout.activity_retro);
         btnZip = (Button) findViewById(R.id.btn_zip);
         btnMerge = (Button) findViewById(R.id.btn_merge);
-        btnZipList = (Button) findViewById(R.id.btn_zip_list);
-        btnMergeList = (Button) findViewById(R.id.btn_merge_list);
+//        btnZipList = (Button) findViewById(R.id.btn_zip_list);
+//        btnMergeList = (Button) findViewById(R.id.btn_merge_list);
 
         btnMerge.setOnClickListener(this);
         btnZip.setOnClickListener(this);
-        btnMergeList.setOnClickListener(this);
-        btnZipList.setOnClickListener(this);
+
 
         txtMerge = (TextView) findViewById(R.id.txt_merge);
         txtZip = (TextView) findViewById(R.id.txt_zip);
         txtMergeList = (TextView) findViewById(R.id.txt_merge_list);
         txtZipList = (TextView) findViewById(R.id.txt_zip_list);
 
+        btnZip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zip();
+            }
+        });
+        btnMerge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                merge();
+            }
+        });
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -149,22 +162,33 @@ public class RetroActivity extends AppCompatActivity implements Callback<CatItem
             case R.id.btn_merge:
                 merge();
                 break;
-            case R.id.btn_zip_list:
-                zipList();
-                break;
-            case R.id.btn_merge_list:
-                mergeList();
-                break;
+//            case R.id.btn_zip_list:
+//                zipList();
+//                break;
+//            case R.id.btn_merge_list:
+//                mergeList();
+//                break;
         }
     }
     private void zip() {
-
+        Observable.zip(btcObservable, ethObservable,new BiFunction<List<CatItem.Country>, List<CatItem.Country>, String>() {
+                    @Override
+                    public String apply(List<CatItem.Country> country1, List<CatItem.Country> country2) {
+                        return country1.get(0).country_id.toString() + " and " + country2.get(0).country_id.toString();
+                    }
+                })
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::handleZipResults, this::handleError);
     }
     private void zipList(){
 
     }
     private void merge(){
-
+        Observable.merge(btcObservable, ethObservable)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::handleMergeResults, this::handleError);
     }
     private void mergeList(){}
 
@@ -185,7 +209,7 @@ public class RetroActivity extends AppCompatActivity implements Callback<CatItem
 
         MyApiEndpointInterface cryptocurrencyService = retrofit.create(MyApiEndpointInterface.class);
 
-        Observable<List<CatItem.Country>> btcObservable = cryptocurrencyService.getCoinData("btc")
+        btcObservable = cryptocurrencyService.getCoinData("btc")
                 .map(result -> Observable.fromIterable(result.country))
                 .flatMap(x -> x).filter(y -> {
                     //y.coinName = "btc";
@@ -193,7 +217,7 @@ public class RetroActivity extends AppCompatActivity implements Callback<CatItem
                     return true;
                 }).toList().toObservable();
 
-        Observable<List<CatItem.Country>> ethObservable = cryptocurrencyService.getCoinData("nathaniel")
+        ethObservable = cryptocurrencyService.getCoinData("nathaniel")
                 .map(result -> Observable.fromIterable(result.country))
                 .flatMap(x -> x).filter(y -> {
                     //y.coinName = "eth";
@@ -201,23 +225,23 @@ public class RetroActivity extends AppCompatActivity implements Callback<CatItem
                     return true;
                 }).toList().toObservable();
 
-        Observable.zip(btcObservable, ethObservable,new BiFunction<List<CatItem.Country>, List<CatItem.Country>, String>() {
-                    @Override
-                    public String apply(List<CatItem.Country> country1, List<CatItem.Country> country2) {
-                        return country1.get(0).country_id.toString() + " and " + country2.get(0).country_id.toString();
-                    }
-                })
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::handleResults, this::handleError);
+
 
     }
 
-    private void handleResults(String sumResult) {
+    private void handleZipResults(String sumResult) {
         if (sumResult != null && sumResult.length() != 0) {
 
-            Toast.makeText(this, sumResult,
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Zip: " + sumResult, Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "NO RESULTS FOUND", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void handleMergeResults(List<CatItem.Country> result) {
+        if (result != null && result.size() != 0) {
+
+            Toast.makeText(this, "Merge Get: " + result.get(0).country_id.toString(), Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "NO RESULTS FOUND",
                     Toast.LENGTH_LONG).show();
