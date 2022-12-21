@@ -34,4 +34,6 @@ public class ItemChat {
     {
         this.viewType = viewType;
     }
+
+
 }
