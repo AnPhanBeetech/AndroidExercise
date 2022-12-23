@@ -10,6 +10,9 @@
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/activity_fragment_tab.xml" value="0.15427350427350428" />
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/activity_info.xml" value="0.1" />
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/activity_people.xml" value="0.15427350427350428" />
+        <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/activity_people_detail.xml" value="0.20811965811965813" />
+        <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/activity_people_item.xml" value="0.23333333333333334" />
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/activity_recycler.xml" value="0.21" />
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/activity_retro.xml" value="0.14990942028985507" />
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/chat_img_mainuser.xml" value="0.191796875" />
@@ -19,8 +22,11 @@
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/fragment_item.xml" value="0.15427350427350428" />
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/fragment_one.xml" value="0.20982905982905983" />
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/fragment_two.xml" value="0.15427350427350428" />
+        <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/item_people.xml" value="0.23247863247863249" />
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/type_one.xml" value="0.10129490392648287" />
         <entry key="..\:/Android/AndroidExercise/app/src/main/res/layout/type_two.xml" value="0.1017126148705096" />
+        <entry key="..\:/Android/AndroidExercise/app/src/main/res/menu/menu_main.xml" value="0.23333333333333334" />
+        <entry key="..\:/Android/AndroidExercise/app/src/main/res/xml/menu_main.xml" value="0.23247863247863249" />
       </map>
     </option>
   </component>

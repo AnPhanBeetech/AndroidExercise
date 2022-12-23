@@ -1,4 +1,4 @@
-package com.example.androidexercise;
+package com.example.androidexercise.mvvm.model;
 
 import android.util.Log;
 
@@ -16,11 +16,18 @@ public class CatItem {
     public class Country {
         public String country_id;
         public float probability;
+
+        public String fullName;
+
     }
 
     public String getRespond()
     {
         return "Respond";//country[0].country_id + " vs " + country[0].probability +"  && " + name;
+    }
+    public List<Country> getListCountry()
+    {
+        return country;
     }
 
 }

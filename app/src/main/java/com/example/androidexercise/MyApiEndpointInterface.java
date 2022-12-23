@@ -1,6 +1,6 @@
 package com.example.androidexercise;
 
-import com.example.androidexercise.ItemChat;
+import com.example.androidexercise.mvvm.model.CatItem;
 
 import java.util.List;
 

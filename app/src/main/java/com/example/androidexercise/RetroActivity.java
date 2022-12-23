@@ -9,11 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.androidexercise.mvvm.model.CatItem;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,14 +26,11 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetroActivity extends AppCompatActivity implements Callback<CatItem>, View.OnClickListener {
     //public static final String BASE_URL = "https://catfact.ninja/";
